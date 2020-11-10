@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  api:
+    build:
+      context: api
+    ports:
+      - 80:80
+    volumes:
+      - type: bind
+        source: ${PWD}/api
+        target: /api
+
+  mongodb:
+    image: mongo
+    volumes:
+      - './data:/data/db'
